@@ -91,11 +91,11 @@ app.put("/todos/:todoId", async (request, response) => {
     status === undefined &&
     todo === undefined
   ) {
-    query = `UPDATE todo SET status = "${priority}" WHERE id = ${todoId};`;
+    query = `UPDATE todo SET priority = "${priority}" WHERE id = ${todoId};`;
     data = await db.run(query);
     response.send("Priority Updated");
   } else {
-    query = `UPDATE todo SET status = "${todo}" WHERE id = ${todoId};`;
+    query = `UPDATE todo SET todo = "${todo}" WHERE id = ${todoId};`;
     data = await db.run(query);
     response.send("Todo Updated");
   }
